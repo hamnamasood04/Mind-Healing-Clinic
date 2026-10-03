@@ -1,3 +1,4 @@
+```css
 /* ================================
    GENERAL
 ================================ */
@@ -1143,6 +1144,99 @@ p {
 
 
 /* ================================
+   REVIEWS
+================================ */
+
+.reviews {
+    background: #f6eee8;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.review-card {
+    background: #fffaf6;
+    border: 1px solid #e6d9d0;
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.4s;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(90, 70, 62, 0.1);
+}
+
+.review-stars {
+    color: #b9838a;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.review-card p {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #5f504a;
+    margin-bottom: 20px;
+}
+
+.review-name {
+    color: #8d817a;
+    font-size: 12px;
+}
+
+.review-form-wrapper {
+    grid-column: 1 / -1;
+    background: #fffaf6;
+    border: 1px solid #e6d9d0;
+    border-radius: 24px;
+    padding: 40px;
+    margin-top: 10px;
+    box-shadow: 0 15px 40px rgba(90, 70, 62, 0.07);
+}
+
+.review-form-wrapper h3 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.review-form-wrapper > p {
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 27px;
+    color: #d8c8c2;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #b9838a;
+}
+
+
+/* ================================
    CONTACT
 ================================ */
 
@@ -1520,6 +1614,19 @@ p {
         gap: 0;
     }
 
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-form-wrapper {
+        grid-column: auto;
+        padding: 25px;
+    }
+
+    .review-form-wrapper h3 {
+        font-size: 25px;
+    }
+
     .contact {
         padding: 70px 0;
     }
@@ -1542,3 +1649,4 @@ p {
         bottom: 18px;
     }
 }
+```
