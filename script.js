@@ -121,3 +121,69 @@ bookingForm.addEventListener("submit", function (event) {
     window.open(whatsappURL, "_blank");
 
 });
+
+/* ================================
+   CLIENT REVIEW
+================================ */
+
+const reviewForm = document.querySelector(".review-form");
+
+if (reviewForm) {
+
+    reviewForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        const submitButton = reviewForm.querySelector(".submit-button");
+
+        submitButton.disabled = true;
+        submitButton.innerHTML = "Submitting...";
+
+        const formData = new FormData(reviewForm);
+
+        try {
+
+            const response = await fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+
+                reviewForm.innerHTML = `
+                    <div class="review-success">
+                        <div class="review-success-icon">✓</div>
+
+                        <h3>Thank you!</h3>
+
+                        <p>
+                            Your review has been submitted successfully.
+                            Thank you for sharing your experience.
+                        </p>
+                    </div>
+                `;
+
+            } else {
+
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Submit Review →";
+
+                alert("Something went wrong. Please try again.");
+
+            }
+
+        } catch (error) {
+
+            submitButton.disabled = false;
+            submitButton.innerHTML = "Submit Review →";
+
+            alert("Something went wrong. Please try again.");
+
+        }
+
+    });
+
+}
